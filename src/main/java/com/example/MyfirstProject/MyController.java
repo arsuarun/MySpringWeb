@@ -15,6 +15,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class MyController {
+	
+	@GetMapping(value = "/min/{a}/{b}/{c}")
+	public String getMin(@PathVariable int a, @PathVariable int b, @PathVariable int c ) {
+		if(a<b && a<c) {
+			return a+" = max";
+		}
+		else if(b<c && b<a) {
+			return b+" = max";
+		}
+		else {
+			return c+" = max";
+		}
+	}
+	
 	@GetMapping(value = "/getthis")
 	public String getThis() {
 		return "Hellow World";
